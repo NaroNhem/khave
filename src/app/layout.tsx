@@ -6,8 +6,8 @@ import { ThemeProvider } from "@/providers/theme-providers"
 const inter = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "kahve",
-  description: "Coffee Simplified",
+  title: "kahveAI",
+  description: "AI Personalized",
 };
 
 export default function RootLayout({

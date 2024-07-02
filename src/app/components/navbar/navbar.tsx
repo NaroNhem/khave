@@ -14,6 +14,7 @@ import {
 import ModeToggle from './mode-toggle'
 import { BookPlus, Coffee, MenuIcon, ShoppingBasket, X } from 'lucide-react'
 import { useState } from 'react'
+import { Button } from '@/components/ui/button'
 
 type Props = {}
 
@@ -21,36 +22,35 @@ const Navbar = (props: Props) => {
     const [hidden, setHidden] = useState(false)
     const handleOnclick = () => setHidden(!hidden)
   return (
-    <div className='flex justify-evenly items-center radius-xl relative py-4 px-12 dark:bg-black/40 backdrop-blur-lg md:justify-between w-screen'>
+    <div className='flex justify-between items-center radius-xl sticky top-0 py-4 px-10 dark:bg-black/40 backdrop-blur-xl w-full z-10 m-0'>
         <h1 className=' font-bold text-2xl'>kahveAI</h1>
         <div className='hidden md:block'>
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger className=''>Coffee</NavigationMenuTrigger>
-                            <NavigationMenuContent className='md:w-[300px] lg:w-[400px] font-[12px]'>
+                        <NavigationMenuTrigger className=''>Products</NavigationMenuTrigger>
+                            <NavigationMenuContent className='md:w-[300px] lg:w-[400px] font-[12px]  '>
                                 <NavigationMenuLink>
                                     <div className='text-[12px] pt-3 pl-5'>
-                                        <p>Coffee your way</p>
+                                        <p>Explore KhaveAI</p>
                                     </div>
                                     <ul className='flex justify-evenly items-center font-sm p-2'>
-                                        <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Order</Link></li>
-                                        <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Roats</Link></li>
-                                        <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Techniques</Link></li>
+                                        <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Overview</Link></li>
+                                        <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Starter</Link></li>
                                     </ul></NavigationMenuLink>
                             </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                    <NavigationMenuTrigger>Accessories</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>Research</NavigationMenuTrigger>
                         <NavigationMenuContent className=' md:w-[300px] lg:w-[400px]'>
                             <NavigationMenuLink>
                             <div className='text-[12px] pt-3 pl-5'>
-                                        <p>Browse our high selection</p>
+                                        <p>Our Research</p>
                                     </div>
                                 <ul className='flex justify-between items-center p-2'>
-                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Grinders</Link></li>
-                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Mugs</Link></li>
-                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">All Items</Link></li>
+                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Overview</Link></li>
+                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Safety</Link></li>
+                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Highlights</Link></li>
                                 </ul></NavigationMenuLink>
                         </NavigationMenuContent>
                     </NavigationMenuItem>
@@ -63,8 +63,7 @@ const Navbar = (props: Props) => {
                                     </div>
                                     <ul className='flex justify-between items-center p-2'>
                                     <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex justify-center'><Link href="#">Our story</Link></li>
-                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex justify-center'><Link href="#">Sustainability</Link></li>
-                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex justify-center'><Link href="#">Sources</Link></li>
+                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex justify-center'><Link href="#">Contact Us</Link></li>
                                 </ul>
                                 </NavigationMenuLink>
                             </NavigationMenuContent>
@@ -72,10 +71,10 @@ const Navbar = (props: Props) => {
                 </NavigationMenuList>
             </NavigationMenu>
         </div>
-        <div className='flex gap-3 hidden md:flex'>
-            <button className="px-4 py-2 rounded-md border text-sm dark:hover:shadow-[4px_4px_4px_0px_rgba(255,255,255)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200">
+        <div className='gap-3 hidden md:flex'>
+            <Button variant="outline" className="px-4 py-2 rounded-md border text-sm transition duration-200">
                 Login
-            </button>
+            </Button>
             <ModeToggle/>
         </div>
             <button onClick={handleOnclick} className='md:hidden block'>
