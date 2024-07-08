@@ -24,9 +24,10 @@ export default function Home() {
         </div>
       }/>
         <Cards/>
-        <div className=" flex justify-center bg-black p-10">
-          <div className="w-[63rem] ">
-          <p className="text-2xl">Discover how KhaveAI can make an impact on your life</p>
+        <div className=" flex justify-center dark:bg-black p-10">
+          <div className="md:w-[58rem] md:flex items-center justify-between">
+            <p className="text-2xl">Discover how KhaveAI can make an impact on your life</p>
+            <Button variant="outline" className="group md:m-0 mt-10">Get Started <MoveRight  className="ml-3 group-hover:ml-6 duration-300"/></Button>
           </div>
         </div>
         <Footer />

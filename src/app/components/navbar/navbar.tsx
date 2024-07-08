@@ -12,7 +12,7 @@ import {
     NavigationMenuViewport,
   } from "@/components/ui/navigation-menu"
 import ModeToggle from './mode-toggle'
-import { BookPlus, Coffee, MenuIcon, ShoppingBasket, X } from 'lucide-react'
+import { BookOpenText, BookPlus, Brain, Coffee, MenuIcon, ShoppingBasket, X } from 'lucide-react'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 
@@ -61,9 +61,9 @@ const Navbar = (props: Props) => {
                                 <div className='text-[12px] pt-3 pl-5'>
                                         <p>Who we are</p>
                                     </div>
-                                    <ul className='flex justify-between items-center p-2'>
-                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex justify-center'><Link href="#">Our story</Link></li>
-                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex justify-center'><Link href="#">Contact Us</Link></li>
+                                    <ul className='flex justify-evenly items-center p-2'>
+                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Our story</Link></li>
+                                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Contact Us</Link></li>
                                 </ul>
                                 </NavigationMenuLink>
                             </NavigationMenuContent>
@@ -90,22 +90,20 @@ const Navbar = (props: Props) => {
                 </button>
             </div>
             <ul>
-                <p className='px-8 text-xs flex gap-5 items-end sm:p-3 font-bold'><Coffee /> Coffee</p>
-                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Order</Link></li>
-                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Roats</Link></li>
-                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Techniques</Link></li>
+                <p className='px-8 text-xs flex gap-5 items-end sm:p-3 font-bold'><Brain /> Explore KhaveAI</p>
+                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Overview</Link></li>
+                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex '><Link href="#">Starter</Link></li>
             </ul>
             <ul>
-                <p className='px-8 text-xs flex gap-5 items-end sm:p-3 font-bold'> <ShoppingBasket />Accessories</p>
-                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Grinders</Link></li>
-                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Mugs</Link></li>
-                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">All Items</Link></li>
+                <p className='px-8 text-xs flex gap-5 items-end sm:p-3 font-bold'> <BookOpenText />Our Research</p>
+                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Overview</Link></li>
+                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Safety</Link></li>
+                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Highlights</Link></li>
             </ul>
             <ul>
-                <p className='px-8 text-xs flex gap-5 items-end sm:p-3 font-bold'> <BookPlus />About</p>
-                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Our Story</Link></li>
-                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Sustainability</Link></li>
-                    <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Sources</Link></li>
+                <p className='px-8 text-xs flex gap-5 items-end sm:p-3 font-bold'> <BookPlus />Who we are</p>
+                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Our story</Link></li>
+                <li className='p-6 hover:bg-accent hover:text-accent-foreground w-full flex'><Link href="#">Contact Us</Link></li>
             </ul>
         </div>
     </div>
