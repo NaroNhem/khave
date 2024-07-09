@@ -15,12 +15,15 @@ import ModeToggle from './mode-toggle'
 import { BookOpenText, BookPlus, Brain, Coffee, MenuIcon, ShoppingBasket, X } from 'lucide-react'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { useSession, signIn, signOut } from "next-auth/react"
+
 
 type Props = {}
 
 const Navbar = (props: Props) => {
     const [hidden, setHidden] = useState(false)
     const handleOnclick = () => setHidden(!hidden)
+    const { data: session } = useSession()
   return (
     <div className='flex justify-between items-center radius-xl sticky top-0 py-4 px-10 dark:bg-black/40 backdrop-blur-xl w-full z-10 m-0'>
         <h1 className=' font-bold text-2xl'>kahveAI</h1>
@@ -72,9 +75,13 @@ const Navbar = (props: Props) => {
             </NavigationMenu>
         </div>
         <div className='gap-3 hidden md:flex'>
-            <Button variant="outline" className="px-4 py-2 rounded-md border text-sm transition duration-200">
+            {!session ? <Button onClick={() => signIn()}variant="outline" className="px-4 py-2 rounded-md border text-sm transition duration-200">
                 Login
-            </Button>
+            </Button> : 
+            <Button onClick={() => signOut()} variant="outline" className="px-4 py-2 rounded-md border text-sm transition duration-200">
+            Logout
+            </Button>}
+            
             <ModeToggle/>
         </div>
             <button onClick={handleOnclick} className='md:hidden block'>

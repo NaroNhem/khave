@@ -7,7 +7,7 @@ type Props = {}
 const Cards = (props: Props) => {
   return (
     <section className="dark:bg-black">
-        <div className="flex flex-col justify-center items-center  text-center pt-12 gap-9"> 
+        <div className="flex flex-col justify-center items-center  text-center pt-16 gap-9"> 
           <p className="text-balance w-full md:text-4xl text-xl mx-auto">Writes, brainstorms, edits, and explores ideas with you</p>
           <Image
           src="/chatgpt1.png"
