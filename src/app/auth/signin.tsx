@@ -5,7 +5,7 @@ import type {
   } from "next"
   import { getProviders, signIn } from "next-auth/react"
   import { getServerSession } from "next-auth/next"
-  import { authOptions } from "@/pages/api/auth/[...nextauth]"
+  import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 
   
   export default function SignIn({

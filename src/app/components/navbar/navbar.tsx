@@ -15,7 +15,7 @@ import ModeToggle from './mode-toggle'
 import { BookOpenText, BookPlus, Brain, Coffee, MenuIcon, ShoppingBasket, X } from 'lucide-react'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signIn, signOut } from "next-auth/react" 
 
 
 type Props = {}
@@ -75,9 +75,9 @@ const Navbar = (props: Props) => {
             </NavigationMenu>
         </div>
         <div className='gap-3 hidden md:flex'>
-            {!session ? <Button onClick={() => signIn()}variant="outline" className="px-4 py-2 rounded-md border text-sm transition duration-200">
+            {!session ? <Link href='/auth/login'><Button variant="outline" className="px-4 py-2 rounded-md border text-sm transition duration-200">
                 Login
-            </Button> : 
+            </Button></Link> : 
             <Button onClick={() => signOut()} variant="outline" className="px-4 py-2 rounded-md border text-sm transition duration-200">
             Logout
             </Button>}
