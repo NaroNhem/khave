@@ -1,12 +1,12 @@
 'use client'
 import { SessionProvider, signIn } from "next-auth/react";
-import { GetServerSideProps } from "next";
 import Navbar from "./components/navbar/navbar";
 import Cards from "./components/cards";
 import Footer from "./components/footer";
 import { Button } from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
 import { WavyBackground } from "@/components/ui/wavy-background";
+import Link from "next/link";
 
 interface HomeProps {
   session: any | null;
@@ -33,14 +33,16 @@ export default function Home({ session }: HomeProps) {
                 beyond.
               </p>
               {!session ? (
-                <Button
-                  variant="outline"
-                  className="group mt-10 z-9 "
-                  onClick={() => signIn()}
-                >
-                  Get Started{" "}
-                  <MoveRight className="ml-3 group-hover:ml-6 duration-300" />
-                </Button>
+                <Link href='/login'>
+                  <Button
+                    variant="outline"
+                    className="group mt-10 z-9 "
+                    // onClick={() => signIn()}
+                  >
+                    Get Started{" "}
+                    <MoveRight className="ml-3 group-hover:ml-6 duration-300" />
+                  </Button>
+                </Link>
               ) : null}
             </div>
           }
