@@ -24,23 +24,10 @@ export async function login(formData: FormData) {
   redirect('/account/dashboard')
 }
 
-export async function googleLogin() {                                                            
-  const supabase = createClient()
-  
-  await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: {
-      redirectTo: `http://localhost:3000`,
-    },
-  })
-  console.log('logging in!')
-  
-}
-
 export async function signup(formData: FormData) {
   console.log('Signup function called')
   const supabase = createClient()
-
+  
   // Type-casting here for convenience
   // In practice, you should validate your inputs
   const data = {

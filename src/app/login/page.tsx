@@ -15,16 +15,35 @@ import { createClient } from "@/utils/supabase/client"
 
 
 export default function Component() {
+
   const googleLogin = async () => {
     const supabase = createClient()
-
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `http://localhost:3000/account/dashboard`,
+        redirectTo: `http://localhost:3000/auth/callback`,
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        },
       },
-    })
+    }) 
   }
+
+  const githubLogin = async () => {
+    const supabase = createClient()
+    await supabase.auth.signInWithOAuth({
+      provider: 'github',
+      options: {
+        redirectTo: `http://localhost:3000/auth/callback`,
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        },
+      },
+    }) 
+  }
+
   return (
     <div className="mx-auto flex max-w-[480px] flex-col items-center justify-center space-y-6 py-12">
       <div className="space-y-2 text-center">
@@ -46,7 +65,7 @@ export default function Component() {
       </div>
       <Separator className="w-full" />
       <div className="w-full space-y-4">
-        <Button variant="outline" className="w-full">
+        <Button onClick={() => githubLogin()} variant="outline" className="w-full">
           <GithubIcon className="mr-2 h-4 w-4" />
           Sign in with GitHub
         </Button>
