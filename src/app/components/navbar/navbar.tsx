@@ -86,7 +86,6 @@ const Navbar = (props: Props) => {
         </div>
             <button onClick={handleOnclick} className='md:hidden block'>
                 {!hidden && <MenuIcon className='md:hidden block'/>}
-                
             </button>
         <div className={
             !hidden ? "hidden" : "absolute top-0 right-0 w-screen h-screen border-2 z-[100] md:hidden sm:w-1/2 bg-white dark:bg-black overflow-scroll"
