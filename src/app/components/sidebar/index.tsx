@@ -5,8 +5,16 @@ import React, { useState } from 'react'
 import clsx from 'clsx'
 import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
-import { PanelLeftDashed, Settings, SquarePen } from 'lucide-react'
+import { CircleUserRound, PanelLeftDashed, Settings, SquarePen } from 'lucide-react'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import Create from '../create/create'
+import ModeToggle from '../navbar/mode-toggle'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+
 
 type Props = {}
 
@@ -16,33 +24,42 @@ const MenuOptions = (props: Props) => {
   const onClickCloseSideBar = () => setHidden(!hidden)
 
   return (
-    <div>
+    <ScrollArea>
     <nav className ={
-        !hidden ?  "dark:bg-black h-screen overflow-y-scroll justify-between md:flex items-center flex-col  gap-10 py-2 px-2 w-[15vw] hidden " : "hidden"}>
+        !hidden ?  "bg-gray-200 dark:bg-gray-900 h-screen justify-between md:flex items-center flex-col  gap-10 py-2 px-2 w-[15vw] rounded-xl hidden z-10" : "hidden"}>
       <div className="flex justify-between gap-8 w-full">
-        {/* <Link
-          className="flex font-bold flex-row "
-          href="/"
-        >
-          KhaveAI
-        </Link> */}
-            <Button onClick={() => onClickCloseSideBar()}className='w-14 bg-inherit hover:bg-slate-900'> 
+            <Button onClick={() => onClickCloseSideBar()} variant='outline' className='w-14 bg-inherit'> 
                 <PanelLeftDashed className='h-8 w-8 dark:text-white'/>
             </Button>
-        {/* <Separator /> */}
           <Create />
-      </div>  
-      <div className='flex w-full'>
-        <Button className='w-14 bg-inherit hover:bg-slate-900'><Settings className='h-8 w-8 dark:text-white' /></Button>
+      </div>
+      <Separator />   
+      <div className='h-full'>
+
+      </div>
+      <Separator /> 
+      <div className='flex justify-between w-full p-2'>
+        <Popover>
+          <PopoverTrigger>
+            <CircleUserRound className='dark:text-white' />
+          </PopoverTrigger>
+          <PopoverContent className='flex flex-col gap-1'>
+            <Button variant='outline' className='w-full bg-inherit border-none'>Account</Button>
+            <Button variant='outline' className='w-full bg-inherit border-none'>Settings</Button>
+            <Link href='../auth/logout'><Button variant='outline' className='w-full bg-inherit border-none'>Logout</Button></Link>
+          </PopoverContent>
+        </Popover>
+        <ModeToggle />
       </div>
     </nav>
     {/* Code for when sidebar is minimized. */}
-      <div className='py-2 px-2 '>
-      <Button onClick={() => onClickCloseSideBar()}className=' w-14 bg-inherit hover:bg-slate-900 '> 
+      <div className={
+          !hidden ? 'hidden ' : 'py-2 px-2 bg-gray-50 dark:bg-gray-950 h-screen'}>
+      <Button variant='outline'onClick={() => onClickCloseSideBar()}className=' w-14  bg-inherit border-none'> 
           <PanelLeftDashed className='h-8 w-8 dark:text-white'/>
       </Button>
       </div>
-    </div>
+    </ScrollArea>
   )
 }
 
